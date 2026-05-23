@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partner - HIMAVO MICRO IT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+            color: #1a1a2e;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+        .navbar-brand img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        .nav-link {
+            color: #4a4a6a !important;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-left: 15px;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #6a11cb !important;
+        }
+        .nav-link.active {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+        }
+
+        .partner-container {
+            padding-top: 140px;
+            padding-bottom: 100px;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+        .hero-section p {
+            color: #6c757d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+        .tab-btn {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #555;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .tab-btn:hover {
+            border-color: #6a11cb;
+            color: #6a11cb;
+        }
+        .tab-btn.active {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            border-color: transparent;
+            color: white;
+        }
+
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .partner-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .partner-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(106, 17, 203, 0.15);
+        }
+        .partner-logo {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            padding: 30px;
+        }
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .partner-logo .no-logo {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #6a11cb;
+        }
+        .partner-info {
+            padding: 20px;
+        }
+        .partner-info h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .partner-info .partner-category {
+            display: inline-block;
+            background: #eef2ff;
+            color: #2575fc;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .partner-info p {
+            color: #6c757d;
+            font-size: 0.85rem;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+        .partner-info .partner-since {
+            margin-top: 12px;
+            font-size: 0.7rem;
+            color: #999;
+        }
+
+        .media-partner-section {
+            margin-top: 60px;
+            background: linear-gradient(135deg, #f0e6ff 0%, #e8f0fe 100%);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+        }
+        .media-partner-section h3 {
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        .media-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .media-item {
+            background: white;
+            border-radius: 16px;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .media-item img {
+            height: 40px;
+            width: auto;
+        }
+        .media-item span {
+            font-weight: 600;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .partner-container {
+                padding-top: 120px;
+            }
+            .partner-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/Himavo-Micro-IT.png" alt="Logo Micro IT" 
+                     onerror="this.src='https://micro-orm.ipb.ac.id/wp-content/uploads/2023/09/LOGO-HIMAVO-MICRO-IT.png'">
+                <span class="fw-semibold text-dark fs-6">HIMAVO MICRO IT</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kerja-sama.html">Kerja Sama</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="partner.html">Partner</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dokumentasi.php">Dokumentasi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container partner-container">
+        <div class="hero-section" data-aos="fade-up">
+            <h1><i class="fas fa-handshake me-2"></i> Our Partners</h1>
+            <p>Mitra dan kolaborator yang telah bekerja sama dengan HIMAVO MICRO IT dalam berbagai kegiatan dan program.</p>
+        </div>
+
+        <div class="category-tabs" data-aos="fade-up" data-aos-delay="100">
+            <div class="tab-btn active" data-category="all">Semua</div>
+            <div class="tab-btn" data-category="perusahaan">Perusahaan</div>
+            <div class="tab-btn" data-category="komunitas">Komunitas</div>
+            <div class="tab-btn" data-category="pendidikan">Pendidikan</div>
+            <div class="tab-btn" data-category="media">Media Partner</div>
+            <div class="tab-btn" data-category="sponsor">Sponsor</div>
+        </div>
+
+        <!-- Partner Grid -->
+        <div class="partner-grid" id="partnerGrid" data-aos="fade-up" data-aos-delay="200">
+            <!-- Data partner akan di-load via JavaScript -->
+            <div class="text-center py-5" style="grid-column: 1/-1;">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Media Partner Section -->
+        <div class="media-partner-section" data-aos="fade-up" data-aos-delay="300" id="mediaPartnerSection">
+            <h3><i class="fas fa-newspaper me-2"></i> Media Partner</h3>
+            <div class="media-grid" id="mediaGrid">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50
+        });
+
+        const partners = [
+            // Perusahaan
+            {
+                id: 1,
+                name: "PT. Teknologi Nusantara",
+                category: "perusahaan",
+                categoryName: "Perusahaan",
+                description: "Perusahaan teknologi terkemuka yang bergerak di bidang pengembangan software dan AI.",
+                logo: "assets/logo.png",
+                since: "2023",
+                website: "https://example.com"
+            },
+            {
+                id: 2,
+                name: "Digital Asia Group",
+                category: "perusahaan",
+                categoryName: "Perusahaan",
+                description: "Solusi digital untuk transformasi bisnis di Asia Tenggara.",
+                logo: "assets/logo.png",
+                since: "2024",
+                website: "#"
+            },
+            {
+                id: 3,
+                name: "Inovasi Lab",
+                category: "perusahaan",
+                categoryName: "Perusahaan",
+                description: "Research & development center untuk teknologi masa depan.",
+                logo: "assets/logo.png",
+                since: "2023",
+                website: "#"
+            },
+            // Komunitas
+            {
+                id: 4,
+                name: "Developer Community Indonesia",
+                category: "komunitas",
+                categoryName: "Komunitas",
+                description: "Komunitas developer terbesar di Indonesia dengan ribuan anggota aktif.",
+                logo: "assets/logo.png",
+                since: "2022",
+                website: "#"
+            },
+            {
+                id: 5,
+                name: "Women in Tech",
+                category: "komunitas",
+                categoryName: "Komunitas",
+                description: "Komunitas yang mendukung perempuan berkarya di bidang teknologi.",
+                logo: "assets/logo.png",
+                since: "2024",
+                website: "#"
+            },
+            {
+                id: 6,
+                name: "Startup Weekend Bogor",
+                category: "komunitas",
+                categoryName: "Komunitas",
+                description: "Event bootcamp dan hackathon untuk para founder startup.",
+                logo: "assets/logo.png",
+                since: "2023",
+                website: "#"
+            },
+            // Pendidikan
+            {
+                id: 7,
+                name: "Universitas Indonesia",
+                category: "pendidikan",
+                categoryName: "Pendidikan",
+                description: "Kerja sama riset dan pengembangan teknologi pendidikan.",
+                logo: "assets/logo.png",
+                since: "2023",
+                website: "#"
+            },
+            {
+                id: 8,
+                name: "SMK Telkom Jakarta",
+                category: "pendidikan",
+                categoryName: "Pendidikan",
+                description: "Program magang dan pelatihan siswa SMK di bidang IT.",
+                logo: "assets/logo.png",
+                since: "2024",
+                website: "#"
+            },
+            // Sponsor
+            {
+                id: 9,
+                name: "Kopi Koding",
+                category: "sponsor",
+                categoryName: "Sponsor",
+                description: "Sponsor resmi kegiatan MICRO IT di bidang F&B.",
+                logo: "assets/logo.png",
+                since: "2024",
+                website: "#"
+            },
+            {
+                id: 10,
+                name: "Indosat Ooredoo",
+                category: "sponsor",
+                categoryName: "Sponsor",
+                description: "Sponsor koneksi internet untuk kegiatan workshop.",
+                logo: "assets/logo.png",
+                since: "2023",
+                website: "#"
+            }
+        ];
+
+        // Data Media Partner
+        const mediaPartners = [
+            { name: "Tech in Asia", logo: "assets/logo.png" },
+            { name: "Daily Social", logo: "assets/logo.png" },
+            { name: "Kompas Tekno", logo: "assets/logo.png" },
+            { name: "Detik Inet", logo: "assets/logo.png" },
+            { name: "IDN Times", logo: "assets/logo.png" }
+        ];
+
+        // Fungsi render partner cards
+        function renderPartners(category = "all") {
+            const grid = document.getElementById("partnerGrid");
+            const filtered = category === "all" 
+                ? partners 
+                : partners.filter(p => p.category === category);
+            
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="text-center py-5" style="grid-column: 1/-1;">
+                    <i class="fas fa-handshake fa-3x text-muted mb-3"></i>
+                    <h5 class="text-muted">Belum ada partner di kategori ini</h5>
+                    <p class="text-muted">Segera hadir!</p>
+                </div>`;
+                return;
+            }
+            
+            grid.innerHTML = filtered.map(partner => `
+                <div class="partner-card" data-category="${partner.category}">
+                    <div class="partner-logo">
+                        ${partner.logo ? 
+                            `<img src="${partner.logo}" alt="${partner.name}">` : 
+                            `<div class="no-logo"><i class="fas fa-building"></i></div>`
+                        }
+                    </div>
+                    <div class="partner-info">
+                        <span class="partner-category">${partner.categoryName}</span>
+                        <h4>${partner.name}</h4>
+                        <p>${partner.description}</p>
+                        <div class="partner-since">
+                            <i class="far fa-calendar-alt me-1"></i> Sejak ${partner.since}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderMediaPartners() {
+            const grid = document.getElementById("mediaGrid");
+            grid.innerHTML = mediaPartners.map(media => `
+                <div class="media-item">
+                    <img src="${media.logo}" alt="${media.name}">
+                    <span>${media.name}</span>
+                </div>
+            `).join('');
+        }
+
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const category = this.getAttribute('data-category');
+                renderPartners(category);
+            });
+        });
+
+        // Load data
+        renderPartners("all");
+        renderMediaPartners();
+    </script>
+</body>
+</html>
